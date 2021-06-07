@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
+    <AssemblyName>Panosen.CodeDom.EFCore.Engine</AssemblyName>
+    <RootNamespace>Panosen.CodeDom.EFCore.Engine</RootNamespace>
+    <Version>0.1.0</Version>
+    <Authors>harriszhang@live.cn</Authors>
+    <Company>harriszhang@live.cn</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <DocumentationFile>bin\$(Configuration)\Panosen.CodeDom.EFCore.Engine.xml</DocumentationFile>
+    <PackageIcon>panosen.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\panosen.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Panosen.CodeDom.CSharp.Engine" Version="1.0.0" />
+    <PackageReference Include="Panosen.CodeDom.CSharpProject.Engine" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Panosen.CodeDom.EFCore\Panosen.CodeDom.EFCore.csproj" />
+  </ItemGroup>
+
+</Project>
