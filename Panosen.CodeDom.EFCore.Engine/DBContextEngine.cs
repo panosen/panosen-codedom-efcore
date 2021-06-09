@@ -42,7 +42,7 @@ namespace Panosen.CodeDom.EFCore.Engine
                 foreach (var table in dbContext.TableMap.Values)
                 {
                     codeClass.AddProperty($"DbSet<{table.TableEntity()}>", $"{table.TableName}s")
-                        .SetSummary($"table `{dbContext.DBName}`.`{table.RealTableName}`");
+                        .SetSummary($"table `{table.RealTableName}`");
                 }
             }
 
