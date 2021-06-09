@@ -58,7 +58,7 @@ namespace Panosen.CodeDom.EFCore
         /// <summary>
         /// 添加一个属性
         /// </summary>
-        public static Column AddColumn(this View view, string columnName)
+        public static Column AddColumn(this View view, string columnName, string realColumnName = null)
         {
             if (view.ColumnMap == null)
             {
@@ -67,6 +67,7 @@ namespace Panosen.CodeDom.EFCore
 
             Column column = new Column();
             column.ColumnName = columnName;
+            column.RealColumnName = realColumnName;
 
             view.ColumnMap.Add(column.ColumnName, column);
 

@@ -58,7 +58,7 @@ namespace Panosen.CodeDom.EFCore
         /// <summary>
         /// 添加一个属性
         /// </summary>
-        public static Table AddField(this Table table, Column column)
+        public static Table AddColumn(this Table table, Column column)
         {
             if (table.ColumnMap == null)
             {
@@ -73,7 +73,7 @@ namespace Panosen.CodeDom.EFCore
         /// <summary>
         /// 添加一个属性
         /// </summary>
-        public static Column AddField(this Table table, string columnName, string realColumnName = null)
+        public static Column AddColumn(this Table table, string columnName, string realColumnName = null)
         {
             if (table.ColumnMap == null)
             {
