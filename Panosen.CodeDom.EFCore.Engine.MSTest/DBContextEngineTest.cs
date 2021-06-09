@@ -58,7 +58,7 @@ namespace Savory.BookManage.Repository
     {
 
         /// <summary>
-        /// table `Bookdb`.`book`
+        /// table `book`
         /// </summary>
         public DbSet<BookEntity> Books { get; set; }
 
