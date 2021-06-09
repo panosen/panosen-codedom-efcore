@@ -79,7 +79,7 @@ namespace Panosen.CodeDom.EFCore.Engine.MSTest
 
             var builder = new StringBuilder();
 
-            new TableEntityEngine().Generate(tableEntity, new StringWriter(builder));
+            new TableEntityEngine().Generate(tableEntity, builder);
 
             var actual = builder.ToString();
 

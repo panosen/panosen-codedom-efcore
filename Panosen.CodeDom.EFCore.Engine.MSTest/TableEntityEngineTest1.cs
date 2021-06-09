@@ -39,7 +39,7 @@ namespace Panosen.CodeDom.EFCore.Engine.MSTest
             tableEntityFile.Table.KeyColumnUsageList = this.keyColumnUsageList;
 
             var builder = new StringBuilder();
-            new TableEntityEngine().Generate(tableEntityFile, new StringWriter(builder));
+            new TableEntityEngine().Generate(tableEntityFile, builder);
             var actual = builder.ToString();
             var expected = PrepareBookExpected();
             Assert.AreEqual(expected, actual);
@@ -55,7 +55,7 @@ namespace Panosen.CodeDom.EFCore.Engine.MSTest
             tableEntityFile.Table.KeyColumnUsageList = this.keyColumnUsageList;
 
             var builder = new StringBuilder();
-            new TableEntityEngine().Generate(tableEntityFile, new StringWriter(builder));
+            new TableEntityEngine().Generate(tableEntityFile, builder);
             var actual = builder.ToString();
             var expected = PrepareTagExpected();
             Assert.AreEqual(expected, actual);

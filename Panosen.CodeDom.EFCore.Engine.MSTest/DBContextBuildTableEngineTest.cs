@@ -65,7 +65,7 @@ namespace Panosen.CodeDom.EFCore.Engine.MSTest
 
             var builder = new StringBuilder();
 
-            new DBContextBuildTableEngine().Generate(dBContextBuildTable, new StringWriter(builder));
+            new DBContextBuildTableEngine().Generate(dBContextBuildTable, builder);
 
             var actual = builder.ToString();
 

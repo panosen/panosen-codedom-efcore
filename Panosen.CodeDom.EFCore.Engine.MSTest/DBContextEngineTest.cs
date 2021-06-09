@@ -30,7 +30,7 @@ namespace Panosen.CodeDom.EFCore.Engine.MSTest
             }
 
             var builder = new StringBuilder();
-            new DBContextEngine().Generate(dbContext, new StringWriter(builder));
+            new DBContextEngine().Generate(dbContext, builder);
             var actual = builder.ToString();
 
             var expected = PrepareExpected();
