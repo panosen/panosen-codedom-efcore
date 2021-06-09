@@ -43,7 +43,7 @@ namespace Panosen.CodeDom.EFCore
         /// <summary>
         /// 添加一个属性
         /// </summary>
-        public static View AddField(this View view, Column column)
+        public static View AddColumn(this View view, Column column)
         {
             if (view.ColumnMap == null)
             {
@@ -53,6 +53,24 @@ namespace Panosen.CodeDom.EFCore
             view.ColumnMap.Add(column.ColumnName, column);
 
             return view;
+        }
+
+        /// <summary>
+        /// 添加一个属性
+        /// </summary>
+        public static Column AddColumn(this View view, string columnName)
+        {
+            if (view.ColumnMap == null)
+            {
+                view.ColumnMap = new Dictionary<string, Column>();
+            }
+
+            Column column = new Column();
+            column.ColumnName = columnName;
+
+            view.ColumnMap.Add(column.ColumnName, column);
+
+            return column;
         }
     }
 }
