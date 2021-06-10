@@ -11,6 +11,7 @@
     <DocumentationFile>bin\$(Configuration)\Panosen.CodeDom.EFCore.Engine.xml</DocumentationFile>
     <PackageIcon>panosen.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/panosen/panosen-codedom-efcore</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
