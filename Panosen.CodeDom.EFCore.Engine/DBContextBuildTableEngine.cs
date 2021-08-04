@@ -105,7 +105,7 @@ namespace Panosen.CodeDom.EFCore.Engine
                             .AddParameter($"table => new {{ {string.Join(", ", index.Properties.Select(v => $"table.{v.ColumnName}"))} }}");
                     }
 
-                    stepBuilder.AddCallMethodExpression("HasName", true).AddParameter(DataValue.DoubleQuotationString(index.Name));
+                    stepBuilder.AddCallMethodExpression("HasDatabaseName", true).AddParameter(DataValue.DoubleQuotationString(index.Name));
                     if (index.NONE_UNIQUE == 0)
                     {
                         stepBuilder.AddCallMethodExpression($"IsUnique", true);

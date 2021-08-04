@@ -4,7 +4,7 @@
     <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
     <AssemblyName>Panosen.CodeDom.EFCore.Engine</AssemblyName>
     <RootNamespace>Panosen.CodeDom.EFCore.Engine</RootNamespace>
-    <Version>0.1.9</Version>
+    <Version>0.1.10</Version>
     <Authors>harriszhang@live.cn</Authors>
     <Company>harriszhang@live.cn</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
