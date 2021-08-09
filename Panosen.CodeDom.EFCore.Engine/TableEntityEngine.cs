@@ -22,11 +22,12 @@ namespace Panosen.CodeDom.EFCore.Engine
         {
             CodeFile codeFile = new CodeFile();
 
+            codeFile.AddSystemUsing(SystemUsing.System);
+            codeFile.AddSystemUsing(SystemUsing.SystemCollectionsGeneric);
+
             var codespace = codeFile.AddNamespace($"{tableEntity.CSharpRootNamespace}.Entity");
 
             var codeClass = codespace.AddClass(tableEntity.Table.TableEntity(), summary: $"`{tableEntity.Table.RealTableName}`", accessModifiers: AccessModifiers.Public);
-            codeClass.AddSystemUsing(SystemUsing.System);
-            codeClass.AddSystemUsing(SystemUsing.SystemCollectionsGeneric);
 
             if (tableEntity.Table.ColumnMap != null && tableEntity.Table.ColumnMap.Count > 0)
             {

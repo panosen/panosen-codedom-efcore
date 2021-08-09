@@ -22,20 +22,20 @@ namespace Panosen.CodeDom.EFCore.Engine
         {
             CodeFile codeFile = new CodeFile();
 
+            codeFile.AddSystemUsing(SystemUsing.SystemThreading);
+            codeFile.AddSystemUsing(SystemUsing.SystemThreadingTasks);
+
+            codeFile.AddNugetUsing("Microsoft.EntityFrameworkCore");
+            codeFile.AddNugetUsing("Microsoft.EntityFrameworkCore.Metadata.Builders");
+
+            codeFile.AddProjectUsing($"{dbContext.CSharpRootNamespace}.Entity");
+
             var codespace = codeFile.AddNamespace(dbContext.CSharpRootNamespace);
 
             var codeClass = codespace.AddClass(dbContext.ContextName, accessModifiers: AccessModifiers.Public)
                 .SetIsPartial(true)
                 .SetBaseClass("DbContext")
                 .SetSummary(dbContext.ContextName);
-
-            codeClass.AddSystemUsing(SystemUsing.SystemThreading);
-            codeClass.AddSystemUsing(SystemUsing.SystemThreadingTasks);
-
-            codeClass.AddNugetUsing("Microsoft.EntityFrameworkCore");
-            codeClass.AddNugetUsing("Microsoft.EntityFrameworkCore.Metadata.Builders");
-
-            codeClass.AddProjectUsing($"{dbContext.CSharpRootNamespace}.Entity");
 
             if (dbContext.TableMap != null && dbContext.TableMap.Count > 0)
             {

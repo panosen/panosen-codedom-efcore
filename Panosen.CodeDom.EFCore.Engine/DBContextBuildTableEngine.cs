@@ -26,17 +26,17 @@ namespace Panosen.CodeDom.EFCore.Engine
 
             CodeFile codeFile = new CodeFile();
 
+            codeFile.AddSystemUsing(SystemUsing.SystemThreading);
+            codeFile.AddSystemUsing(SystemUsing.SystemThreadingTasks);
+
+            codeFile.AddNugetUsing("Microsoft.EntityFrameworkCore");
+            codeFile.AddNugetUsing("Microsoft.EntityFrameworkCore.Metadata.Builders");
+
+            codeFile.AddProjectUsing($"{dbContextBuildTable.CSharpRootNamespace}.Entity");
+
             var codespace = codeFile.AddNamespace(dbContextBuildTable.CSharpRootNamespace);
 
             var codeClass = codespace.AddClass(dbContextBuildTable.ContextName).SetIsPartial(true);
-
-            codeClass.AddSystemUsing(SystemUsing.SystemThreading);
-            codeClass.AddSystemUsing(SystemUsing.SystemThreadingTasks);
-
-            codeClass.AddNugetUsing("Microsoft.EntityFrameworkCore");
-            codeClass.AddNugetUsing("Microsoft.EntityFrameworkCore.Metadata.Builders");
-
-            codeClass.AddProjectUsing($"{dbContextBuildTable.CSharpRootNamespace}.Entity");
 
             if (dbContextBuildTable.Table != null)
             {
