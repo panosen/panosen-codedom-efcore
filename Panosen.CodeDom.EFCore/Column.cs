@@ -22,7 +22,7 @@ namespace Panosen.CodeDom.EFCore
         public string RealColumnName { get; set; }
 
         /// <summary>
-        /// 列类型
+        /// 列类型，带数据长度
         /// </summary>
         public string ColumnType { get; set; }
 
