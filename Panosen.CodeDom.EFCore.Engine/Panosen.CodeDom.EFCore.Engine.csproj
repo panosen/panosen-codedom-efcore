@@ -4,7 +4,7 @@
     <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
     <AssemblyName>Panosen.CodeDom.EFCore.Engine</AssemblyName>
     <RootNamespace>Panosen.CodeDom.EFCore.Engine</RootNamespace>
-    <Version>0.2.5</Version>
+    <Version>0.2.6</Version>
     <Authors>harriszhang@live.cn</Authors>
     <Company>harriszhang@live.cn</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Panosen.CodeDom.CSharp.Engine" Version="1.4.1" />
+    <PackageReference Include="Panosen.CodeDom.CSharp.Engine" Version="1.4.2" />
     <PackageReference Include="Panosen.CodeDom.CSharpProject.Engine" Version="1.0.7" />
   </ItemGroup>
 
