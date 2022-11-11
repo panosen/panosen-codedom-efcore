@@ -72,7 +72,7 @@ namespace Panosen.CodeDom.EFCore.Engine
 
             codeMethod.BaseConstructor = "base(options)";
 
-            codeMethod.StepBuilders = new List<StepBuilderOrCollection>();
+            codeMethod.StepCollection = new StepCollection();
 
             return codeMethod;
         }
@@ -88,7 +88,7 @@ namespace Panosen.CodeDom.EFCore.Engine
 
             codeMethod.AddParameter("ModelBuilder", "builder");
 
-            codeMethod.StepBuilders = new List<StepBuilderOrCollection>();
+            codeMethod.StepCollection = new StepCollection();
 
             if (dbContext.TableMap != null && dbContext.TableMap.Count > 0)
             {
