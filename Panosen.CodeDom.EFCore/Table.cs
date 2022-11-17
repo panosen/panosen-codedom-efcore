@@ -22,6 +22,11 @@ namespace Panosen.CodeDom.EFCore
         public string RealTableName { get; set; }
 
         /// <summary>
+        /// 表注释
+        /// </summary>
+        public string Comment { get; set; }
+
+        /// <summary>
         /// 属性
         /// </summary>
         public Dictionary<string, Column> ColumnMap { get; set; }

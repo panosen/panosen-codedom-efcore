@@ -27,7 +27,13 @@ namespace Panosen.CodeDom.EFCore.Engine
 
             var codespace = codeFile.AddNamespace($"{tableEntity.CSharpRootNamespace}.Entity");
 
-            var codeClass = codespace.AddClass(tableEntity.Table.TableEntity(), summary: $"`{tableEntity.Table.RealTableName}`", accessModifiers: AccessModifiers.Public);
+            var summary = $"`{tableEntity.Table.RealTableName}`";
+            if (!string.IsNullOrEmpty(tableEntity.Table.Comment))
+            {
+                summary += " " + tableEntity.Table.Comment;
+            }
+
+            var codeClass = codespace.AddClass(tableEntity.Table.TableEntity(), summary: summary, accessModifiers: AccessModifiers.Public);
 
             if (tableEntity.Table.ColumnMap != null && tableEntity.Table.ColumnMap.Count > 0)
             {

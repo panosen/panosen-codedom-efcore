@@ -23,6 +23,7 @@ namespace Panosen.CodeDom.EFCore.Engine.MSTest
                 var table = new Table();
                 table.TableName = "Book";
                 table.RealTableName = "book";
+                table.Comment = "图书";
                 table.ColumnMap = new Dictionary<string, Column>();
                 table.PrimaryKeyColumns = new List<Column>();
 
@@ -97,7 +98,7 @@ namespace Savory.BookManage.Repository.Entity
 {
 
     /// <summary>
-    /// `book`
+    /// `book` 图书
     /// </summary>
     public class BookEntity
     {
