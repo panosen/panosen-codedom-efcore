@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Panosen.CodeDom.CSharp.Engine" Version="1.5.2" />
+    <PackageReference Include="Panosen.CodeDom.CSharp.Engine" Version="1.6.2" />
     <PackageReference Include="Panosen.CodeDom.CSharpProject.Engine" Version="1.0.7" />
   </ItemGroup>
 
