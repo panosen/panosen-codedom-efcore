@@ -38,7 +38,7 @@ namespace Panosen.CodeDom.EFCore.Engine
                 codeClass.AddMethod(BuildMethod_BuildView(dbContextBuildView.View));
             }
 
-            new CSharpCodeEngine().GenerateCodeFile(codeFile, codeWriter);
+            new CSharpCodeEngine().GenerateCodeFile(codeWriter, codeFile);
         }
 
         private CodeMethod BuildMethod_BuildView(View view)

@@ -45,7 +45,7 @@ namespace Panosen.CodeDom.EFCore.Engine
 
             PrepareForeignKey(tableEntity, codeClass);
 
-            new CSharpCodeEngine().GenerateCodeFile(codeFile, codeWriter);
+            new CSharpCodeEngine().GenerateCodeFile(codeWriter, codeFile);
         }
 
         private void PrepareForeignKey(TableEntityFile tableEntity, CodeClass codeClass)

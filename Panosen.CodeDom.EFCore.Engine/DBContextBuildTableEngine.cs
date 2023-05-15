@@ -43,7 +43,7 @@ namespace Panosen.CodeDom.EFCore.Engine
                 codeClass.AddMethod(BuildMethod_BuildTable(dbContextBuildTable.Table, dbContextBuildTable.IgnoreForeignKey));
             }
 
-            new CSharpCodeEngine().GenerateCodeFile(codeFile, codeWriter);
+            new CSharpCodeEngine().GenerateCodeFile(codeWriter, codeFile);
         }
 
         private CodeMethod BuildMethod_BuildTable(Table table, bool ignoreForeignKey)

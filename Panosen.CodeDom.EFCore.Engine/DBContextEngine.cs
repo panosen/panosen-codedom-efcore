@@ -59,7 +59,7 @@ namespace Panosen.CodeDom.EFCore.Engine
 
             codeClass.AddMethod(BuildMethod_OnModelCreating(dbContext));
 
-            new CSharpCodeEngine().GenerateCodeFile(codeFile, codeWriter);
+            new CSharpCodeEngine().GenerateCodeFile(codeWriter, codeFile);
         }
 
         private CodeMethod BuildMethod_Constructor(DBContextFile dbContext)
