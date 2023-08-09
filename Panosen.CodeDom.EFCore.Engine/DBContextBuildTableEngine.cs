@@ -87,7 +87,8 @@ namespace Panosen.CodeDom.EFCore.Engine
             //索引
             if (table.Indexes != null && table.Indexes.Count > 0)
             {
-                foreach (var index in table.Indexes)
+                var indexes = table.Indexes.OrderBy(v => v.Name).ToList();
+                foreach (var index in indexes)
                 {
                     codeMethod.StepEmpty();
 
