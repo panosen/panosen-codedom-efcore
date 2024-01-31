@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="Panosen.CodeDom.CSharp.Engine" Version="1.7.0" />
-    <PackageReference Include="Panosen.CodeDom.CSharpProject.Engine" Version="1.0.7" />
+    <PackageReference Include="Panosen.CodeDom.CSharpProject.Engine" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
