@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.Schema;
 using Panosen.CodeDom.CSharp;
 using Panosen.CodeDom.CSharp.Engine;
 
@@ -40,14 +40,16 @@ namespace Panosen.CodeDom.EFCore.Engine
 
             if (dbContextBuildTable.Table != null)
             {
-                codeClass.AddMethod(BuildMethod_BuildTable(dbContextBuildTable.Table, dbContextBuildTable.IgnoreForeignKey));
+                codeClass.AddMethod(BuildMethod_BuildTable(dbContextBuildTable, dbContextBuildTable.IgnoreForeignKey));
             }
 
             new CSharpCodeEngine().GenerateCodeFile(codeWriter, codeFile);
         }
 
-        private CodeMethod BuildMethod_BuildTable(Table table, bool ignoreForeignKey)
+        private CodeMethod BuildMethod_BuildTable(DBContextBuildTableFile dbContextBuildTable, bool ignoreForeignKey)
         {
+            var table = dbContextBuildTable.Table;
+
             CodeMethod codeMethod = new CodeMethod();
             codeMethod.AccessModifiers = AccessModifiers.Private;
             codeMethod.Type = "void";
@@ -58,6 +60,18 @@ namespace Panosen.CodeDom.EFCore.Engine
             //表映射
             codeMethod.StepStatementChain().AddCallMethodExpression($"{table.TableEntity().ToLowerCamelCase()}.ToTable")
                 .AddParameter(DataValue.DoubleQuotationString(table.RealTableName));
+
+            //多租户
+            if (!string.IsNullOrEmpty(dbContextBuildTable.TenantServiceName)
+                && !string.IsNullOrEmpty(dbContextBuildTable.TenantServicePropertyName)
+                && !string.IsNullOrEmpty(dbContextBuildTable.TenantTablePropertyName))
+            {
+                codeMethod.StepEmpty();
+                codeMethod.StepStatementChain().AddCallMethodExpression($"{table.TableEntity().ToLowerCamelCase()}.HasQueryFilter")
+                    .AddParameterOfLamdaExpression()
+                    .SetParameter("table")
+                    .SetExpression($"table.{dbContextBuildTable.TenantTablePropertyName} == {dbContextBuildTable.TenantServiceName}.{dbContextBuildTable.TenantServicePropertyName}");
+            }
 
             //主键
             codeMethod.StepEmpty();

@@ -30,12 +30,23 @@ namespace Panosen.CodeDom.EFCore.Engine
 
             codeFile.AddProjectUsing($"{dbContext.CSharpRootNamespace}.Entity");
 
+            if (!string.IsNullOrEmpty(dbContext.TenantServiceNamespace))
+            {
+                codeFile.AddProjectUsing(dbContext.TenantServiceNamespace);
+            }
+
             var codespace = codeFile.AddNamespace(dbContext.CSharpRootNamespace);
 
             var codeClass = codespace.AddClass(dbContext.ContextName, accessModifiers: AccessModifiers.Public)
                 .SetIsPartial(true)
                 .SetBaseClass("DbContext")
                 .SetSummary(dbContext.ContextName);
+
+            if (!string.IsNullOrEmpty(dbContext.TenantServiceInterface) && !string.IsNullOrEmpty(dbContext.TenantServiceName))
+            {
+                codeClass.AddField(dbContext.TenantServiceInterface, dbContext.TenantServiceName, isReadOnly: true)
+                    .SetSummary(dbContext.TenantServiceInterface);
+            }
 
             if (dbContext.TableMap != null && dbContext.TableMap.Count > 0)
             {
@@ -67,12 +78,22 @@ namespace Panosen.CodeDom.EFCore.Engine
             CodeMethod codeMethod = new CodeMethod();
             codeMethod.AccessModifiers = AccessModifiers.Public;
             codeMethod.Name = dbContext.ContextName;
+
             codeMethod.AddParameter($"DbContextOptions<{dbContext.ContextName}>", "options");
+            if (!string.IsNullOrEmpty(dbContext.TenantServiceInterface) && !string.IsNullOrEmpty(dbContext.TenantServiceName))
+            {
+                codeMethod.AddParameter(dbContext.TenantServiceInterface, dbContext.TenantServiceName);
+            }
+
             codeMethod.SetSummary(dbContext.ContextName);
 
             codeMethod.BaseConstructor = "base(options)";
 
             codeMethod.StepCollection = new StepCollection();
+            if (!string.IsNullOrEmpty(dbContext.TenantServiceInterface) && !string.IsNullOrEmpty(dbContext.TenantServiceName))
+            {
+                codeMethod.StepStatement($"this.{dbContext.TenantServiceName} = {dbContext.TenantServiceName};");
+            }
 
             return codeMethod;
         }

@@ -30,5 +30,20 @@ namespace Panosen.CodeDom.EFCore
         /// 需要构建的主体
         /// </summary>
         public Table Table { get; set; }
+
+        /// <summary>
+        /// 多租户服务名称 示例：tenantService
+        /// </summary>
+        public string TenantServiceName { get; set; }
+
+        /// <summary>
+        /// 租户服务内属性名称 示例：TenantId
+        /// </summary>
+        public string TenantServicePropertyName { get; set; }
+
+        /// <summary>
+        /// 实例内属性名称 示例：TenantId
+        /// </summary>
+        public string TenantTablePropertyName { get; set; }
     }
 }

@@ -35,5 +35,20 @@ namespace Panosen.CodeDom.EFCore
         /// ViewList
         /// </summary>
         public List<View> ViewList { get; set; }
+
+        /// <summary>
+        /// 多租户服务接口 示例：ITenantService
+        /// </summary>
+        public string TenantServiceInterface { get; set; }
+
+        /// <summary>
+        /// 多租户服务名称 示例：tenantService
+        /// </summary>
+        public string TenantServiceName { get; set; }
+
+        /// <summary>
+        /// 多租户服务命名空间 示例：Sample.MultiTenant
+        /// </summary>
+        public string TenantServiceNamespace { get; set; }
     }
 }
